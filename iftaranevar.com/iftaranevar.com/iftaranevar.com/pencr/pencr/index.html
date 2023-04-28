@@ -1,0 +1,1456 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+
+
+    <meta name="viewport" content="width=device-width" />
+
+
+
+    <title>IFTARA NE VAR</title>
+
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+
+    <link href="Content/bootstrap-datepicker.css" rel="stylesheet" />
+
+    <link href="Content/bootstrap-responsive.css" rel="stylesheet" />
+
+
+
+    <script src="Scripts/jquery-1.9.1.js"></script>
+
+    <script src="Scripts/bootstrap.js"></script>
+
+    <script src="Scripts/bootstrap-datepicker.js"></script>
+
+    <script src="Scripts/locales/bootstrap-datepicker.tr.js"></script>
+
+    <link href='http://fonts.googleapis.com/css?family=EB+Garamond&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+    <link href='http://fonts.googleapis.com/css?family=Courgette&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+    <link href='http://fonts.googleapis.com/css?family=Calligraffitti&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+    <link href="css/font-awesome.css" rel="stylesheet" />
+
+    <script>
+
+        $(document).ready(function () {
+
+
+
+            var text = "";
+
+            $('.input-append.date').datepicker({
+
+                todayBtn: "linked",
+
+                language: "tr",
+
+                autoclose: true,
+
+                startDate: "27-05-2017",
+
+                endDate: "24-06-2017"
+
+            }).on("changeDate", function (e) {
+
+                var selectedDay = $("#txt-date-picker").val();
+
+
+
+                var split = text.split('&&');
+
+                for (var i = 0; i < split.length; i++) {
+
+                    if (split[i] == selectedDay) {
+
+                        $(".menu-date").text(split[i]);
+
+                        var foods = split[i + 1].split('-');
+
+
+
+                        for (var j = 0; j < foods.length; j++) {
+
+                            var svc = foods[j].substring(1, foods[j].length);
+
+                            if (j == 4) { 
+
+                                $(".kirmizi-menu-siralama li:nth-child(" + (j + 1) + ")").text(foods[j].split(',')[0]);
+
+                                $(".beyaz-menu-siralama li:nth-child(" + (j + 1) + ")").text(foods[j].split(',')[1]);
+								
+                               
+								
+
+                            }
+							
+							
+							
+							  
+                                 
+
+                            else {
+
+                                $(".menu-siralama li:nth-child(" + (j + 1) + ")").text(foods[j]);
+
+                            }
+
+                        }
+
+                        //alert(split[i+1]);
+						
+						
+						
+						
+
+                    }
+
+                }
+
+            });
+
+
+
+            text = "&&27.05.2017&&İftar Tabağı-Mercimek Çorbası-Mevsim Salatası-Su Böreği-Dana Rosto,Ispanaklı Tavuk Rulo-Patates Püresi,Patates Tava-Pirinç Pilavı-Fıstıklı Tel Kadayıf-Meşrubat-Su-Çay" +
+
+                "&&28.05.2017&&İftar Tabağı-Ezo Gelin Çorbası-Mevsim Salatası-Su Böreği-Püreli Tas Kebap Domates ve Biber ile,Soya Soslu Piliç Pirinç Pilavı,Patates Tava ile-Baklava-Meşrubat-Su-Çay" +
+
+                "&&29.05.2017&&İftar Tabağı-Yayla Çorbası-Mevsim Salatası-Domates Soslu Biftek,Mantar Soslu Piliç Graten-Pirinç Pilavı-Patates Tava-Fırın Sütlaç-Meşrubat-Su-Çay" +
+
+                "&&30.05.2017&&İftar Tabağı-Şehriyeli Tavuk Çorbası-Mevsim Salatası-Dana Etsote Mantarlı,Piliç Kavurma Mantarlı-Pirinç Pilavı-Patates Tava-İncir Tatlısı-Meşrubat-Su-Çay" +
+
+                "&&31.05.2017&&İftar Tabağı-Kremalı Mantar Çorbası-Mevsim Salatası-Dana Rosto,Köri Soslu Piliç-Pirinç Pilavı-Patates Püresi-Şekerpare-Meşrubat-Su-Çay" +
+
+                "&&01.06.2017&&İftar Tabağı-Süzme Mercimek Çorbası-Mevsim Salatası-Et Sote Mantarlı,Piliç Sote Mantarlı-Pirinç Pilavı-Patates Tava-Baklava-Meşrubat-Su-Çay" +
+
+                "&&02.06.2017&&İftar Tabağı-Ezo Gelin Çorbası-Mevsim Salatası-Hünkar Beğendili Kebap,Soya Soslu Piliç-Domates-Biber-Tel Kadayıf-Meşrubat-Su-Çay" +
+
+                "&&03.06.2017&&İftar Tabağı-Yayla Çorbası-Mevsim Salatası-Domates Soslu Biftek,Mantar Soslu Piliç Graten-Pirinç Pilavı-Patates Tava-Fırın Sütlaç-Meşrubat-Su-Çay" +
+
+                "&&04.06.2017&&İftar Tabağı-Şehriyeli Tavuk Çorbası-Mevsim Salatası-Dana Etsote Mantarlı,Piliç Kavurma Mantarlı-Pirinç Pilavı-Patates Tava-İncir Tatlısı-Meşrubat-Su-Çay" +
+
+                "&&05.06.2017&&İftar Tabağı-Kremalı Mantar Çorbası-Mevsim Salatası-Dana Rosto,Köri Soslu Piliç-Pirinç Pilavı-Patates Püresi-Şekerpare-Meşrubat-Su-Çay" +
+
+                "&&06.06.2017&&İftar Tabağı-Süzme Mercimek Çorbası-Mevsim Salatası-Et Sote Mantarlı,Piliç Sote Mantarlı-Pirinç Pilavı-Patates Tava-Baklava-Meşrubat-Su-Çay" +
+
+                "&&07.06.2017&&İftar Tabağı-Ezo Gelin Çorbası-Mevsim Salatası-Hünkar Beğendili Kebap,Soya Soslu Piliç-Domates-Biber-Tel Kadayıf-Meşrubat-Su-Çay" +
+
+                "&&08.06.2017&&İftar Tabağı-Yayla Çorbası-Mevsim Salatası-Domates Soslu Biftek,Mantar Soslu Piliç Graten-Pirinç Pilavı-Patates Tava-Fırın Sütlaç-Meşrubat-Su-Çay" +
+
+                "&&09.06.2017&&İftar Tabağı-Şehriyeli Tavuk Çorbası-Mevsim Salatası-Dana Etsote Mantarlı,Piliç Kavurma Mantarlı-Pirinç Pilavı-Patates Tava-İncir Tatlısı-Meşrubat-Su-Çay" +
+
+                "&&10.06.2017&&İftar Tabağı-Kremalı Mantar Çorbası-Mevsim Salatası-Dana Rosto,Köri Soslu Piliç-Pirinç Pilavı-Patates Püresi-Şekerpare-Meşrubat-Su-Çay" +
+
+                "&&11.06.2017&&İftar Tabağı-Süzme Mercimek Çorbası-Mevsim Salatası-Et Sote Mantarlı,Piliç Sote Mantarlı-Pirinç Pilavı-Patates Tava-Baklava-Meşrubat-Su-Çay" +
+
+                "&&12.06.2017&&İftar Tabağı-Ezo Gelin Çorbası-Mevsim Salatası-Hünkar Beğendili Kebap,Soya Soslu Piliç-Domates-Biber-Tel Kadayıf-Meşrubat-Su-Çay" +
+
+                "&&13.06.2017&&İftar Tabağı-Yayla Çorbası-Mevsim Salatası-Domates Soslu Biftek,Mantar Soslu Piliç Graten-Pirinç Pilavı-Patates Tava-Fırın Sütlaç-Meşrubat-Su-Çay" +
+
+                "&&14.06.2017&&İftar Tabağı-Şehriyeli Tavuk Çorbası-Mevsim Salatası-Dana Etsote Mantarlı,Piliç Kavurma Mantarlı-Pirinç Pilavı-Patates Tava-İncir Tatlısı-Meşrubat-Su-Çay" +
+
+                "&&15.06.2017&&İftar Tabağı-Kremalı Mantar Çorbası-Mevsim Salatası-Dana Rosto,Köri Soslu Piliç-Pirinç Pilavı-Patates Püresi-Şekerpare-Meşrubat-Su-Çay" +
+
+                "&&16.06.2017&&İftar Tabağı-Süzme Mercimek Çorbası-Mevsim Salatası-Et Sote Mantarlı,Piliç Sote Mantarlı-Pirinç Pilavı-Patates Tava-Baklava-Meşrubat-Su-Çay" +
+
+                "&&17.06.2017&&İftar Tabağı-Ezo Gelin Çorbası-Mevsim Salatası-Hünkar Beğendili Kebap,Soya Soslu Piliç-Domates-Biber-Tel Kadayıf-Meşrubat-Su-Çay" +
+
+                "&&18.06.2017&&İftar Tabağı-Yayla Çorbası-Mevsim Salatası-Domates Soslu Biftek,Mantar Soslu Piliç Graten-Pirinç Pilavı-Patates Tava-Fırın Sütlaç-Meşrubat-Su-Çay" +
+
+                "&&19.06.2017&&İftar Tabağı-Şehriyeli Tavuk Çorbası-Mevsim Salatası-Dana Etsote Mantarlı,Piliç Kavurma Mantarlı-Pirinç Pilavı-Patates Tava-İncir Tatlısı-Meşrubat-Su-Çay" +
+
+                "&&20.06.2017&&İftar Tabağı-Kremalı Mantar Çorbası-Mevsim Salatası-Dana Rosto,Köri Soslu Piliç-Pirinç Pilavı-Patates Püresi-Şekerpare-Meşrubat-Su-Çay" +
+
+                "&&21.06.2017&&İftar Tabağı-Süzme Mercimek Çorbası-Mevsim Salatası-Et Sote Mantarlı,Piliç Sote Mantarlı-Pirinç Pilavı-Patates Tava-Baklava-Meşrubat-Su-Çay" +
+
+                "&&22.06.2017&&İftar Tabağı-Ezo Gelin Çorbası-Mevsim Salatası-Hünkar Beğendili Kebap,Soya Soslu Piliç-Domates-Biber-Tel Kadayıf-Meşrubat-Su-Çay" +
+
+                "&&23.06.2017&&İftar Tabağı-Yayla Çorbası-Mevsim Salatası-Domates Soslu Biftek,Mantar Soslu Piliç Graten-Pirinç Pilavı-Patates Tava-Fırın Sütlaç-Meşrubat-Su-Çay" +
+
+                "&&24.06.2017&&İftar Tabağı-Şehriyeli Tavuk Çorbası-Mevsim Salatası-Dana Etsote Mantarlı,Piliç Kavurma Mantarlı-Pirinç Pilavı-Patates Tava-İncir Tatlısı-Meşrubat-Su-Çay";
+
+            var today = new Date();
+
+            var dd = today.getDate();
+
+            var mm = today.getMonth() + 1; //January is 0!
+
+            var yyyy = today.getFullYear();
+
+
+
+            if (dd < 10) {
+
+                dd = '0' + dd
+
+            }
+
+
+
+            if (mm < 10) {
+
+                mm = '0' + mm
+
+            }
+
+
+
+            today = dd + '.' + mm + '.' + yyyy;
+
+
+
+             if (new Date(yyyy, mm, dd).valueOf() < new Date(2017, 27, 05).valueOf()) {
+
+                $('.input-append.date').datepicker('update', '05.27.2017');
+
+            }
+
+            else if (new Date(yyyy, mm, dd).valueOf() > new Date(2017, 06, 24).valueOf()) {
+
+                $('.input-append.date').datepicker('update', '24.06.2017');
+
+            }
+
+            else { 
+
+                $('.input-append.date').datepicker('update', dd + '.' + mm + '.' + yyyy);
+
+				
+
+				
+
+				var selectedDay = $("#txt-date-picker").val();
+
+
+
+                var split = text.split('&&');
+
+                for (var i = 0; i < split.length; i++) {
+
+                    if (split[i] == selectedDay) {
+
+                        $(".menu-date").text(split[i]);
+
+                        var foods = split[i + 1].split('-');
+
+
+
+
+                    }
+
+                }
+
+            }
+
+        });
+
+    </script>
+
+    <style>
+
+        body {
+
+	font-family: 'EB Garamond', serif;
+
+	background-image: url(img/arka_plan_b.jpg);
+
+        }
+
+
+
+        .iftar-menu-div {
+
+            height: 100px;
+
+            line-height: 100px; 
+
+            text-align: center;
+
+            margin-left: 0px;
+
+        }
+
+
+
+        @media (max-width: 2000px) and (min-width: 1200px) { /* screen size until 1200px */
+
+            .iftar-menu {
+
+                display: inline-block; 
+
+                vertical-align: middle;
+
+                line-height: normal;
+
+                font-family: Arial;
+
+                font-size: 15PX;
+
+                margin-top: 18px;
+
+                color:#000;
+
+                width: 575px;
+
+            }
+
+
+
+            .kirmizi-beyaz-base {
+
+                margin-top: 53px;
+
+                text-align: left;
+
+                width: 500px;
+
+                color:#a31871;
+
+                font-size: 20px;
+				
+				
+
+            }
+
+        }
+
+
+
+        @media (max-width: 1200px) and (min-width: 750px) { /* screen size until 1200px */
+
+            .iftar-menu {
+
+                display: inline-block;
+
+                vertical-align: middle;
+
+                line-height: normal;
+
+                font-family: Arial;
+
+                font-size: 15PX;
+
+                margin-top: 18px;
+
+                color:#000;
+
+                width: 493px;
+
+                margin-left: 106px;
+
+            }
+
+
+
+            .topMenu .span2 {
+
+                width: 100px;
+
+            }
+
+        }
+
+
+
+        @media (max-width: 980px) and (min-width: 768px) { /* screen size until 1200px */
+
+            .iftar-menu {
+
+                display: inline-block;
+
+                vertical-align: middle;
+
+                line-height: normal;
+
+                font-family: Arial;
+
+                font-size: 15PX;
+
+                margin-top: 18px;
+
+                color:#000;
+
+                width: 493px;
+
+                margin-left: 0px;
+
+            }
+
+
+
+            .topMenu .span2 {
+
+                width: 100px;
+
+            }
+
+        }
+
+
+
+        @media (max-width: 768px) and (min-width: 275px) { /* screen size until 1200px */
+
+            .iftar-menu {
+
+                display: inline-block;
+
+                vertical-align: middle;
+
+                line-height: normal;
+
+                font-family: Arial;
+
+                font-size: 10PX;
+
+                margin-top: 32px;
+
+                color:#000;
+
+                width: 315px;
+
+                margin-left: -3px;
+
+            }
+
+
+
+            .topMenu .span2 {
+
+                width: 80px;
+
+            }
+
+
+
+            .tarih-div {
+
+                margin-bottom: 0px;
+
+				color:#501b32;
+
+            }
+
+
+
+            .menu-date {
+
+                font-size: 30px;
+
+                line-height: 290px;
+
+                color:#FFF;
+
+				
+
+            }
+
+
+
+            .kirmizi-beyaz-base {
+
+                margin-top: -30px;
+
+                text-align: left;
+
+                width: 500px;
+
+                color:#a31871;
+
+            }
+
+
+
+                .kirmizi-beyaz-base .span3 {
+
+                    float: left;
+
+                }
+
+
+
+            .kirmizi-beyaz-base {
+
+                margin-top: -52px;
+
+                text-align: left;
+
+                width: 500px;
+
+                color:#a31871;
+
+            }
+
+
+
+            .iletisim {
+
+                margin-top: 10px;
+
+                font-size: 19px;
+
+                text-align: center;
+
+                width: 100%;
+
+                font-family: Arial;
+
+                color: rgb(199, 107, 94);
+
+            }
+
+            .sosyal-medya {
+
+                margin-top: 8px;
+
+                font-size: 23px;
+
+                text-align: center;
+
+                width: 97%;
+
+            }
+
+
+
+            .gerçek-adres {
+
+                text-align: center;
+
+                margin-top: 20px;
+
+                font-size: 16px;
+
+                margin-left: 0px;
+
+                color:#7e703e;
+
+            }
+
+
+
+            .iftar-tabagi-iceri {
+
+                text-align: center;
+
+                font-size: 25px;
+
+                width: 91%;
+
+                color: #7e703e;
+
+                margin-left: 18px;
+
+				line-height: 20px;
+
+            }
+
+            .cocuk-menusu {
+
+                text-align: center;
+
+                font-size: 11px;
+
+                width: 91%;
+
+				color:#FFF;
+
+                margin-left: 18px;
+
+            }
+
+        }
+
+
+
+        @media (max-width: 575px) and (min-width: 75px) { /* screen size until 1200px */
+
+            .iftar-menu {
+
+                display: inline-block;
+
+                vertical-align: middle;
+
+                line-height: normal;
+
+                font-family: Arial;
+
+                font-size: 8PX;
+
+                color:#000;
+
+                width: 248px;
+
+                margin-top: 0px;
+
+            }
+
+
+
+            .topMenu .span2 {
+
+                width: 70px;
+
+                margin-top: 8px;
+
+            }
+
+
+
+            .topMenu .pull-left {
+
+                margin-top: -9px;
+
+            }
+
+        }
+
+
+
+        @media(max-width:2000px) and (min-width:768px) {
+
+
+
+            .tarih-div {
+
+                margin: 0 auto;
+
+                float: none;
+
+                width: 550px;
+
+                padding-left: 100px;
+
+                margin-bottom: 61px;
+
+				color:#FFF;
+
+            }
+
+
+
+            .menu-gun {
+
+                height: 600px;
+
+                background-size: 100% 100%;
+
+                background-repeat: no-repeat;
+
+                margin-top: 26px;
+
+                background-image: url(img/menu-light-bg-2.png);
+
+                margin: 0 auto;
+
+                float: none;
+
+                /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+
+            }
+
+
+
+            .menu-date {
+
+                font-size: 30px;
+
+                line-height: 40px;
+
+                color:#FFF;
+
+                margin-left: 35px;
+
+            }
+
+
+
+            .dateDiv {
+
+                width: 86%;
+
+            }
+
+
+
+            .iletisim {
+
+                margin-top: 29px;
+
+                font-size: 23px;
+
+                text-align: center;
+
+                width: 500px;
+
+                font-family: Arial;
+
+                color: rgb(199, 107, 94);
+
+            }
+
+
+
+            .gerçek-adres {
+
+                text-align: center;
+
+                margin-top: 20px;
+
+                font-size: 16px;
+
+                margin-left: 0px;
+
+                color:#7e703e;
+
+            }
+
+
+
+            .sosyal-medya {
+
+                margin-top: 8px;
+
+                font-size: 23px;
+
+                text-align: center;
+
+                width: 500px;
+
+            }
+
+        }
+
+
+
+        @media(max-width:1200px) and (min-width:768px) {
+
+            .menu-gun {
+
+                width: 100%;
+
+            }
+
+
+
+            .tarih-div {
+
+                width: 100%;
+
+            }
+
+
+
+            .dateDiv {
+
+                width: 100%;
+
+                margin-left: -11px;
+
+            }
+
+
+
+            .kirmizi-beyaz-base {
+
+                margin-top: 64px;
+
+                text-align: left;
+
+                width: 500px;
+
+                color:#a31871;
+
+            }
+
+
+
+            .iletisim {
+
+                margin-top: 35px;
+
+                font-size: 23px;
+
+                text-align: center;
+
+                width: 95%;
+
+                font-family: Arial;
+
+                color: rgb(199, 107, 94);
+
+            }
+
+
+
+            .gerçek-adres {
+
+                text-align: center;
+
+                margin-top: 20px;
+
+                font-size: 16px;
+
+                margin-left: 0px;
+
+                color:#7e703e;
+
+                width: 103%;
+
+            }
+
+
+
+            .sosyal-medya {
+
+                margin-top: 10px;
+
+                font-size: 23px;
+
+                text-align: center;
+
+                width: 97%;
+
+            }
+
+        }
+
+
+
+        @media(max-width:768px) and (min-width:268px) {
+
+
+
+            .menu-gun {
+
+                height: 600px;
+
+                background-size: 100% 100%;
+
+                background-repeat: no-repeat;
+
+                margin-top: 25px;
+
+                background-image: url(img/menu-light-bg-2.png);
+
+                margin: 0 auto;
+
+                float: none;
+
+                margin-top: -150px;
+
+                /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+
+            }
+
+        }
+
+
+
+        @media(max-width:768px) and (min-width:268px) {
+
+
+
+            .menu-gun {
+
+                height: 600px;
+
+                background-size: 100% 100%;
+
+                background-repeat: no-repeat;
+
+                margin-top: 25px;
+
+                background-image: url(img/menu-light-bg-2.png);
+
+                margin: 0 auto;
+
+                float: none;
+
+                margin-top: -150px;
+
+                /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+
+            }
+
+        }
+
+
+
+        @media(min-width:450px) {
+
+
+
+            .menu-siralama li {
+
+                font-size: 20px;
+
+                margin-top: 0px;
+				
+				margin-left: -20px;
+
+                font-family: 'PT Sans', sans-serif;
+
+                color: #80723e;
+
+line-height: 17px;
+
+            }
+
+
+
+            .iftar-tabagi-iceri {
+
+
+
+text-align: center;
+
+font-size: 20px;
+
+width: 90%;
+
+color:#7e703e;
+
+line-height: 16px;
+
+margin-top: -5px;
+
+            }
+
+			.cocuk-menusu {
+
+
+
+text-align: center;
+
+font-size: 21px;
+
+width: 90%;
+
+color:#FFF;
+
+line-height: 16px;
+
+            }
+
+
+
+            .menuBaslik {
+
+                text-align: center;
+
+                font-size: 16px;
+
+                font-weight:bold;
+
+            }
+
+        }
+
+
+
+        @media(max-width:450px) {
+
+
+
+            .menu-gun {
+
+                height: 600px;
+
+                background-size: 100% 100%;
+
+                background-repeat: no-repeat;
+
+                margin-top: 35px;
+
+                background-image: url(img/menu-light-bg-2.png);
+
+                margin: 0 auto;
+
+                float: none;
+
+                margin-top: -150px;
+
+                /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+
+            }
+
+
+
+            .menu-siralama li {
+
+                font-size: 13px;
+
+                margin-top: 0px;
+
+                font-family: 'PT Sans', sans-serif;
+
+                color: #80723e;
+
+line-height: 16px;
+
+            }
+
+
+
+            .sosyal-medya {
+
+                margin-top: 11px;
+
+                font-size: 15px;
+
+                text-align: center;
+
+                width: 97%;
+
+            }
+
+            .menuBaslik {
+
+                text-align: center;
+
+                font-size: 14px;
+
+                margin-left: 23px;
+
+                text-decoration: underline;
+
+            }
+
+        }
+
+
+
+        .menu {
+
+            background-size: 230px 300px;
+
+            background-repeat: no-repeat;
+
+            background-image: url("img/scroll_paper.gif");
+
+            height: 333px;
+
+        }
+
+
+
+        .kirmizi {
+
+            color: red;
+
+        }
+
+
+
+        .list {
+
+            margin-top: 46px;
+
+        }
+
+
+
+        .span3 {
+
+            width: 213px;
+
+        }
+
+
+
+        .topMenu {
+
+            background-color: #FFFFFF;
+
+            width: 100%;
+
+            border-bottom: black 1px solid;
+
+            /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+
+        }
+
+
+
+        .dateDiv {
+
+            text-align: center;
+
+            margin-top: 128px;
+
+            font-family: 'Calligraffitti', cursive;
+
+        }
+
+        
+
+        .menu-siralama {
+
+            list-style: none;
+
+        }
+
+
+
+        sosyal-medya .fa-white {
+
+            /*color:white;*/
+
+        }
+
+
+
+        .fa-try {
+
+            margin-left: 0px;
+
+			
+
+        }
+
+
+
+        .datepicker table tr td.old, .datepicker table tr td.new {
+
+            color: black;
+
+        }
+
+
+
+        .datepicker table tr td.disabled, .datepicker table tr td.disabled:hover {
+
+            color: #999999;
+
+        }
+
+
+
+        @media (max-width: 1200px) {
+
+            .span5 {
+
+                width: 100%;
+
+            }
+
+
+
+            .kirmizi-beyaz-base {
+
+                width: 100%;
+
+            }
+
+
+
+                .kirmizi-beyaz-base .span3 {
+
+                    width: 47%;
+
+                }
+
+        }
+
+
+
+        @media (max-width: 768px) and (min-width: 657px) {
+
+            .iletisim {
+
+                margin-top: 20px;
+
+                font-size: 19px;
+
+                text-align: center;
+
+                width: 100%;
+
+                font-family: Arial;
+
+                color: rgb(199, 107, 94);
+
+            }
+
+        }
+
+
+
+        @media (min-width: 1200px) {
+
+            .container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
+
+                width: 1000px;
+
+            }
+
+
+
+            .gerçek-adres {
+
+                text-align: center;
+
+                margin-top: 20px;
+
+                font-size: 16px;
+
+                margin-left: 0px;
+
+                color:#7e703e;
+
+            }
+
+        }
+
+        @media(max-width:528px) {
+
+
+
+            .iftar-menu {
+
+                display: inline-block;
+
+                vertical-align: middle;
+
+                line-height: normal;
+
+                font-family: Arial;
+
+                font-size: 8PX;
+
+                margin-top: 11px;
+
+                color:#000;
+
+                width: 130px;
+
+                margin-left: -3px;
+
+            }
+
+			.kirmizi-beyaz-base .span3 {
+
+				width: 50%;
+
+				}
+
+			.kirmizi-menu-son{
+
+				margin-left: -10px;
+
+			}
+
+			.iletisim {
+
+				margin-top: 12px;
+
+				font-size: 19px;
+
+				text-align: center;
+
+				width: 100%;
+
+				font-family: Arial;
+
+				color: rgb(199, 107, 94);
+
+			}
+
+        }
+
+		
+
+		        @media(max-width:334px) {
+
+.menu-siralama li {
+
+font-size: 12px;
+
+margin-top: 0px;
+
+font-family: 'PT Sans', sans-serif;
+
+color: #80723e;
+
+line-height: 17px;
+
+}
+
+        }
+
+        
+
+    body,td,th {
+
+	font-family: "EB Garamond", serif;
+
+}
+
+    </style>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+</head>
+
+<body>
+<div class="container">
+
+    <div class="span6 tarih-div">
+
+            <div class="span2" style="margin-top: 26px; font-size: 30px; ">Tarih Seçiniz</div>
+
+            <div class="span2">
+
+                <div class="input-append date" style="margin-top:20px;">
+
+                    <div class="span2"><input type="text" class="span2" id="txt-date-picker" readonly><span class="add-on"><i class="icon-th"></i></span></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="span6 menu-gun">
+
+<div class="span5 dateDiv"><span class="menu-date">27.05.2017</span></div>
+
+            <div class="span6 kirmizi-beyaz-base"><br><br>
+
+                <div class="span3 kirmizi-menu-son">
+
+                   
+
+                  <ul class="menu-siralama kirmizi-menu-siralama"><br>
+
+                    <li>Mercimek Çorbası</li>
+                    <li>Mevsim Salatası</li>
+                    <li>Su Böreği</li>
+                    <li>Dana Rosto</li>
+                    <li>Pirinç Pilavı</li>
+                    
+                    <li>Patates Püresi</li>
+                    <li>Fıstıklı Tel Kadayıf</li>
+                    <li>Meşrubat</li>
+                    <li>Su</li>
+                    <li>Çay</li>
+                  </ul>
+                </div>
+
+                <div class="span3">
+
+                                 
+
+                    <ul class="menu-siralama beyaz-menu-siralama"><br>
+
+
+
+                        <li>Mercimek Çorbası</li>
+
+                        <li>Mevsim Salatası</li>
+                        
+                        <li>Su Böreği</li>
+                        <li>Ispanaklı Tavuk Rulo</li>
+
+                        <li>Pirinç Pilavı</li>
+                        
+                        <li>Patates Tava</li>   
+                        
+                        <li>Fıstıklı Tel Kadayıf</li>   
+                        
+                        <li>Meşrubat</li>                
+
+                    <li>Su</li>
+                        
+                        <li>Çay</li>
+
+                    </ul>
+
+                </div>
+
+               <p>&nbsp;</p>
+
+               <p>&nbsp;</p>
+
+               <p>&nbsp;</p>
+
+            <br> 
+
+            </div>
+
+            <p>&nbsp;</p>
+
+            <p><br>
+
+            </p>
+
+<div class="span6 iftar-tabagi-iceri">
+
+                <br><br>
+
+<br>
+
+<br>
+
+<br><br>
+
+<br><br><br><br><br>
+
+      <strong>İftar tabağı içeriği:</strong> Hurma, marine zeytinler, ezine beyaz peynir, taze kaşar domates, salatalık, tereyağı, bal, reçel, ramazan pidesi
+
+            <br><br>
+
+<B>* TATLI VE ANA YEMEKLERDE HERGÜN FARKLI LEZZETLER SUNULMAKTADIR. </B>
+ </div>
+          
+
+
+
+<!--<div class="span6 cocuk-menusu">
+
+          Çocuk menüsü <i class="fa fa-try">10 </i> 10 TL
+
+      </div> -->
+
+       
+
+       
+
+<div class="span6 iletisim">
+
+ <!-- <p><br>
+
+    İLETİŞİM</p>-->
+
+</div>
+
+            <div class="span6 gerçek-adres">
+
+                <span><b>REZERVASYON</b> <b><font size="+4">444 81 80</font> - DAHİLİ <font size="+4"> 5151</font></b></span><br />
+<br>
+              <span><b>ADRES:</b> Batı Mah. Erol Kaya Cad. 15 Temmuz Şehitler Cami Yanı No:12 Pendik/İst</span>
+
+            </div>
+
+            <div class="span6 sosyal-medya">
+
+                <a href="http://www.twitter.com/iftaranevar" style=" padding-right: 30px;"><span class="btn">@iftaranevar</span></a>
+
+                <a href="http://www.pentas.org" class="btn">www.pentas.org</a>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
+

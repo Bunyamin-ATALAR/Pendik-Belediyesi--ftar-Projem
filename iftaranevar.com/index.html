@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Pendik İftaranevar</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<style>
+body, html {
+  height: 100%;
+   margin:0;
+  
+}
+
+.bg {
+  /* The image used */
+  background-image: url("img/siluet.png");
+
+  /* Full height */
+  height: 50%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+</style>
+
+
+
+<body>
+
+  <div style="text-align: center; background-color: white; color: black; font-size: 25px; 
+  font-style: oblique;"><h1>Sonraki Ramazan Ayı için Geri Sayım</h1>
+	<p id="countdown"></p>
+	<script>
+		// Ramazan Bayramı'nın tarihi (10 Nisan 2024)
+		var ramazanBayrami = new Date("march 11, 2024 00:00:00").getTime();
+
+		// Her 1 saniyede bir geri sayım yap
+		var geriSayim = setInterval(function() {
+			// Şimdiki zamanı al
+			var suan = new Date().getTime();
+
+			// Kalan zamanı hesapla
+			var kalanZaman = ramazanBayrami - suan;
+
+			// Gün, saat, dakika ve saniye hesapla
+			var gun = Math.floor(kalanZaman / (1000 * 60 * 60 * 24));
+			var saat = Math.floor((kalanZaman % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			var dakika = Math.floor((kalanZaman % (1000 * 60 * 60)) / (1000 * 60));
+			var saniye = Math.floor((kalanZaman % (1000 * 60)) / 1000);
+
+			// Geri sayımı ekrana yazdır
+			document.getElementById("countdown").innerHTML = gun + " gün " + saat + " saat " + dakika + " dakika " + saniye + " saniye kaldı.";
+
+			// Eğer zaman dolduysa "Bayramınız Kutlu Olsun!" yazdır
+			if (kalanZaman < 0) {
+				clearInterval(geriSayim);
+				document.getElementById("countdown").innerHTML = "BAYRAMINIZ KUTLU OLSUN!";
+			}
+		}, 1000);
+	</script>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div style="background-color: #fff; padding: 2px; margin-top: 27.5px; text-align: center;">
+          <div style="display: flex; justify-content: center;">
+              <div style="font-size: 40px; border: 3px solid #333; border-radius: 8px; padding: 10px; background-color: #fff;">
+                  <div style="font-size: 16px; text-align: center; color: #333;">Tarih</div>
+                  <div style="text-align: center; font-weight: bold; font-size: 30px; color: #333;">
+                      <span id="date-day"></span>.<span id="date-month"></span>.<span id="date-year"></span>
+                  </div>
+              </div>
+              <div style="font-size: 40px; border: 3px solid #333; border-radius: 8px; padding: 10px; margin-left: 10px; background-color: #fff;">
+                  <div style="font-size: 16px; text-align: center; color: #333;">Saat</div>
+                  <div style="text-align: center; font-weight: bold; font-size: 30px; color: #333;">
+                      <span id="time-hours"></span>:<span id="time-minutes"></span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="col-md-4"><div class="row" style="text-align:center;height:150; margin-top:10px;"><img src="img/tesis-logo.jpg" alt="Lights"></div></div>
+  <div class="col-md-4"style='text-align:center; margin-top:10px;'><iframe name="vakit" src="https://www.vakitci.com/vakit2.php?id=" height="200" width="192" scrolling="no" border="0" frameborder="0"></iframe></div>
+  </div>
+  
+  <script>
+      var today = new Date();
+      var date = today.getDate();
+      var month = (today.getMonth() + 1).toString().padStart(2, '0');
+      var year = today.getFullYear();
+      var hours = today.getHours().toString().padStart(2, '0');
+      var minutes = today.getMinutes().toString().padStart(2, '0');
+      
+      document.getElementById("date-day").innerHTML = date;
+      document.getElementById("date-month").innerHTML = month;
+      document.getElementById("date-year").innerHTML = year;
+      document.getElementById("time-hours").innerHTML = hours;
+      document.getElementById("time-minutes").innerHTML = minutes;
+  </script>
+
+
+
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="guzelyali.html">
+          <img src="img/main/guzelyali.jpg" alt="Lights" style="width:100%">
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="hayaltepe.html">
+          <img src="img/main/hayaltepe.jpg" alt="Lights" style="width:100%">
+        </a>
+      </div>
+    </div>
+	 <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="pencr.html">
+          <img src="img/main/pencr.jpg" alt="Lights" style="width:100%">
+        </a>
+      </div>
+    </div>
+</div>
+
+<div class="bg"></div>
+
+
+</body>
+</html>
+
+
+
+
+
+
